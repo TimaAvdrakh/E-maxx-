@@ -13,3 +13,14 @@ def djistra(graph, vertex):
             weight[i] = min(weight[i],weight[v]+rebra[v][i])
             queue.append(i)
 
+path = []
+def returnPaht(fm, to):
+    weightTo = weight[to]
+    path.append(to)
+
+    if fm == to:
+        return path
+
+    for i in graph[to]:
+        if weight[i] == weight[to] - rebra[i][to]:
+            returnPaht(fm, i)
